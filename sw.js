@@ -2,13 +2,13 @@
 const CACHE_NAME = 'camara-pwa-v3' // Nombre/versión del caché
 const urlsToCache = [
   // Lista de archivos a guardar en caché
-  '/',
-  '/index.html',
-  '/app.js',
-  '/manifest.json',
-  '/index.css',
-  '/icon-192.png',
-  '/icon-512.png',
+  './',
+  './index.html',
+  './app.js',
+  './manifest.json',
+  './index.css',
+  './icon-192.png',
+  './icon-512.png',
 ]
 // Instalar Service Worker
 self.addEventListener('install', function (event) {
