@@ -8,10 +8,10 @@
       content="Aplicación PWA para capturar fotos con la cámara del dispositivo"
     />
     <meta name="theme-color" content="#000000" />
-    <link rel="manifest" href="/manifest.json" />
-    <link rel="icon" type="image/png" href="icon-192.png" />
-    <link rel="apple-touch-icon" href="icon-192.png" />
-    <link rel="stylesheet" href="/index.css" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="icon" type="image/png" href="./icon-192.png" />
+    <link rel="apple-touch-icon" href="./icon-192.png" />
+    <link rel="stylesheet" href="./index.css" />
     <title>Cámara PWA</title>
   </head>
   <body>
@@ -68,12 +68,12 @@
     </div>
 
     <!-- Scripts -->
-    <script src="/app.js"></script>
+    <script src="./app.js"></script>
     <script>
       // Registrar el Service Worker
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-          .register('/sw.js')
+          .register('./sw.js')
           .then((registration) => {
             console.log(
               'Service Worker registrado correctamente:',
