@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Aplicación PWA para capturar fotos con la cámara del dispositivo"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" type="image/png" href="icon-192.png" />
+    <link rel="apple-touch-icon" href="icon-192.png" />
+    <link rel="stylesheet" href="/index.css" />
+    <title>Cámara PWA</title>
+  </head>
+  <body>
+    <div class="main-wrapper">
+      <div class="container">
+        <h1>Cámara PWA</h1>
+
+        <!-- Botón para abrir la cámara -->
+        <button id="openCamera" class="btn btn-primary">Abrir Cámara</button>
+
+        <!-- Contenedor de la cámara (inicialmente oculto) -->
+        <div
+          id="cameraContainer"
+          class="camera-container"
+          style="display: none"
+        >
+          <video id="video" autoplay playsinline class="video"></video>
+          <canvas id="canvas" style="display: none"></canvas>
+          <button id="takePhoto" class="btn btn-secondary">Tomar Foto</button>
+        </div>
+
+        <!-- Área para mostrar la foto capturada -->
+        <div id="photoContainer" class="photo-container" style="display: none">
+          <h2>📸 Foto Capturada</h2>
+          <img
+            id="capturedPhoto"
+            src=""
+            alt="Foto capturada"
+            class="captured-photo"
+          />
+          <div class="photo-actions">
+            <button id="takeAnother" class="btn btn-primary">
+              Tomar Otra Foto
+            </button>
+          </div>
+        </div>
+
+        <!-- Área de mensajes -->
+        <div id="message" class="message"></div>
+
+        <!-- Galería de fotos capturadas -->
+        <div class="gallery-section">
+          <h2>Galería de Fotos</h2>
+          <div id="photoGallery" class="photo-gallery"></div>
+          <button
+            id="clearGallery"
+            class="btn btn-danger"
+            style="display: none; margin-top: 20px"
+          >
+            Limpiar Galería
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="/app.js"></script>
+    <script>
+      // Registrar el Service Worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then((registration) => {
+            console.log(
+              'Service Worker registrado correctamente:',
+              registration
+            )
+          })
+          .catch((error) => {
+            console.error('Error al registrar Service Worker:', error)
+          })
+      }
+    </script>
+  </body>
+</html>
